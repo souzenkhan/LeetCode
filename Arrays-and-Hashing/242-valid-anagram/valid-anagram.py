@@ -1,3 +1,4 @@
+from collections import Counter
 class Solution(object):
     def isAnagram(self, s, t):
         """
@@ -7,10 +8,7 @@ class Solution(object):
         """
         # used python sorted method to sort the two strings and comparing them 
         # to return true or false
-        s_sorted = sorted(s)
-        t_sorted = sorted(t)
+        return Counter(s) == Counter(t)
         
-        if s_sorted == t_sorted: 
-            return True
-        return False
+
         
