@@ -6,8 +6,8 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        # used python sorted method to sort the two strings and comparing them 
-        # to return true or false
+        # using counter to count the frequency of characters in both strings
+        # returns the comparison 
         return Counter(s) == Counter(t)
         
 
