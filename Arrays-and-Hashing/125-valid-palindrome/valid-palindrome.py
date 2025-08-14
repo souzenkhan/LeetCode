@@ -8,6 +8,7 @@ class Solution(object):
         left = 0 
         right = len(s) -1 #due to index values
 
+        #ensuring it is within range
         while left < right: 
 
             if s[left] == s[right]:
