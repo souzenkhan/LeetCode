@@ -4,7 +4,7 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-
+        #using two pointer approach
         left = 0 
         right = len(s) -1 #due to index values
 
@@ -22,7 +22,9 @@ class Solution(object):
                 left += 1
             elif not (48 <= ord(s[right]) <= 57 or 65 <= ord(s[right]) <= 90 or 97 <= ord(s[right]) <= 122):
                 right -= 1
+            #if the vals are within expected range and different then not a palindrome
             else: 
                 return False
+        #passes all conditions after checking with pointers
         return True
         
