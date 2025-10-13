@@ -5,36 +5,15 @@ class Solution(object):
         :rtype: bool
         """
 
-        str_stack = []
+        stack = []
+        pairs = {')':'(', '}':'{', ']':'['}
 
         for i in s: 
-            if(i == '(' or i == '{' or i == '['):
-                str_stack.append(i)
-            elif(i == ')' or i == '}' or i == ']'):
-                #if there is no other info on the stack and there is a closing bracket return False
-                if(bool(str_stack) == False):
+            if i in '({[':
+                stack.append(i)
+            else: 
+                if not stack or stack[-1] != pairs[i]:
                     return False
-
-                last = str_stack.pop()
-                if(i==')'):
-                    if (last == '('):
-                        continue
-                    else: 
-                        return False
-                elif(i=='}'):
-                    if (last == '{'):
-                        continue
-                    else: 
-                        return False
-                elif(i==']'):
-                    if (last == '['):
-                        continue
-                    else: 
-                        return False
-        isEmpty = not bool(str_stack)
-        if(isEmpty):
-            return True
-        else: 
-            return False
-                
+                stack.pop() 
+        return not stack
         
