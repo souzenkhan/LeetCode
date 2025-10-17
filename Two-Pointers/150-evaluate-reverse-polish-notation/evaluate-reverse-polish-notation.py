@@ -5,24 +5,22 @@ class Solution(object):
         :rtype: int
         """
 
-        def calc(left, right, op):
-            result = 0
-            if op == '+': return left + right
-            if op == '-': return left - right
-            if op == '*': return left * right
-            if op == '/': return int(left / float(right))
-
-
         stack = []
+        operators = {
+            '+': lambda x, y:  x + y,
+            '-': lambda x, y:  x - y,
+            '*': lambda x, y:  x * y,
+            '/': lambda x, y:  int(x /float(y))
+        }
 
 
         for i in tokens: 
-            try: 
-                stack.append(int(i))
-            except ValueError: 
+            if i in operators: 
                 right = stack.pop()
                 left = stack.pop()
-                stack.append(calc(left, right, i))
+                stack.append(operators[i](left, right))
+            else: 
+                stack.append(int(i))
                     
         return stack[-1]
         
