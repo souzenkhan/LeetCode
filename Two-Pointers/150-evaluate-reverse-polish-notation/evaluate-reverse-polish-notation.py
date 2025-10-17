@@ -4,6 +4,7 @@ class Solution(object):
         :type tokens: List[str]
         :rtype: int
         """
+        #optimized solution 
 
         stack = []
         operators = {
