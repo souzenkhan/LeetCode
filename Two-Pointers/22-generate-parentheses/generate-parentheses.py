@@ -5,10 +5,13 @@ class Solution(object):
         :rtype: List[str]
         """
 
+        #using backtracking to solve 
+
         stack = []
         res = []
 
         def backtrack(openN, closeN):
+            #base case
             if(openN == closeN == n):
                 res.append("".join(stack))
                 return
