@@ -7,14 +7,13 @@ class Solution(object):
         stack = []
         pairs = {")" : "(", "}" : "{", "]" : "["}
 
-        for bracket in s: 
-            if bracket in "({[":
-                stack.append(bracket)
+        for i in s: 
+            if i in "({[":
+                stack.append(i)
+
             else: 
-                if not stack or stack[-1] != pairs[bracket]:
+                if not stack or stack[-1] != pairs[i]:
                     return False
                 stack.pop()
 
         return not stack
-
-        
