@@ -4,21 +4,17 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
+        groups = {}
+        for s in strs: 
+            count = [0] * 26
 
-        str_map = {}
-        final_list = []
-        #overall for loop for the given str list
-        for word in strs: 
-            #create a new empty freq list arr for each word 
-            freq = [0] * 26
-            #character position checker and tracker
-            for ch in word: 
-                freq[ord(ch) - ord('a')] += 1 
-            key = tuple(freq)
+            for ch in s: 
+                count[ord(ch) - ord('a')] += 1
 
-            if key not in str_map: 
-                str_map[key] = []
-            str_map[key].append(word)
-        final_list = list(str_map.values())
-        return final_list
+            key = tuple(count)
+
+            if key not in groups: 
+                groups[key] = []
+            groups[key].append(s)
+        return list(groups.values())
         
