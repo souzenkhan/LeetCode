@@ -5,13 +5,12 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        traversed = {}
 
-        for i,x in enumerate(nums):
-            y = target - x
-            if y in traversed: 
-                return [traversed[y], i]
-            else:
-                traversed[x] = i
+        tracker = {}
 
-        
+        for x, i in enumerate(nums):
+            difference = target - i 
+            if difference in tracker: 
+                return [x, tracker[difference]]
+            else: 
+                tracker[i] = x
