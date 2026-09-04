@@ -1,4 +1,3 @@
-from collections import Counter
 class Solution(object):
     def isAnagram(self, s, t):
         """
@@ -6,9 +5,9 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
-        # using counter to count the frequency of characters in both strings
-        # returns the comparison 
-        return Counter(s) == Counter(t)
-        
+        s_sorted = sorted(s)
+        t_sorted = sorted(t)
 
-        
+        if s_sorted == t_sorted: 
+            return True
+        return False
